@@ -3,18 +3,25 @@ package shop.Jarvis.app.demo.calculator.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import shop.Jarvis.app.demo.calculator.entity.User;
-import shop.Jarvis.app.demo.calculator.repositorie.UserRepository;
+import shop.Jarvis.app.demo.calculator.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service @RequiredArgsConstructor
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
-    public List<User> findAll(){
+    @Override public List<User> findAll(){
         return userRepository.findAll();
     }
-    public List<User> findAllByName(String name){
+    @Override public List<User> findAllByName(String name){
         return userRepository.findAllByName(name);
     }
+
+    @Override
+    public Optional<User> findById(long id) {
+        return userRepository.findById(id);
+    }
+
 }

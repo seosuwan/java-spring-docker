@@ -6,25 +6,29 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 
-@Data
+@Document(collection = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "users")
+@Data
 public class User {
-    @Id
-    private String userId;
+    @Id private long userId;
+    private String username;
     private String name;
-    private String password;
     private String email;
+    private String password;
+    private Date regDate;
 
     @Override
     public String toString() {
-        return "회원명세{" +
-                "아이디='" + userId + '\'' +
-                ", 이름='" + name + '\'' +
-                ", 비밀번호='" + password + '\'' +
-                ", 이메일='" + email + '\'' +
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", regDate=" + regDate +
                 '}';
     }
 }

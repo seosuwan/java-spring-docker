@@ -1,4 +1,4 @@
-package shop.Jarvis.app.demo.calculator.repositorie;
+package shop.Jarvis.app.demo.calculator.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
